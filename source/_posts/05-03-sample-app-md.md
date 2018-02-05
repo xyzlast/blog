@@ -1,10 +1,9 @@
 ---
-title: 05-03.SampleApplication (3)
+title: 05-03.SampleApplication(3)
 date: 2018-02-01 12:48:40
-tags: study
+tags: study,java,DIP,SOLID
 ---
-
-# SampleApplication (3)
+# SampleApplication(3) - DIP
 
 지금까지 간단한 코드와 그 코드에 대한 테스트를 행하는 방법에 대해서 알아봤습니다. 그리고 간단한 table의 CRUD를 하는 방법에 대해서 조금 깊게 들어가봤습니다. 또한 저번 시간의 최대 포인트는 테스트입니다. 테스트를 어떻게 작성을 하는지에 대한 논의와 테스트 코드를 직접 사용해보는 시간을 가져봤습니다. 이번 시간에는 드디어 Spring을 이용한 코드에 대해서 논의해보도록 하겠습니다.기존 코드의 가장 큰 문제는 무엇인가요?
 
@@ -536,4 +535,3 @@ spring을 사용하게 되면, 객체들을 new로 새롭게 할당하는 일들
 * ApplicationContext : Spring에서 제공하는 bean의 Map/ObjectFactory
 * property, constructor, init-method를 이용한 객체 초기화 방법
 * IoC, DIP, DI
-

@@ -3,7 +3,7 @@ title: 05-04.SampleApplication(4)
 date: 2018-02-05 08:58:40
 tags: study, java, refactoring
 ---
-# SampleApplication - DAO (4)
+# SampleApplication(4) - TemplateCallback pattern
 
 ## 코드 정리 - 객체간의 중복 코드 정리
 

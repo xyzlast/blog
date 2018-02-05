@@ -1,10 +1,9 @@
 ---
-title: 05-02.Sample Application(2) - 테스트/코드평가
+title: 05-02.SampleApplication(2) - 테스트/코드평가
 date: 2018-02-01 12:47:40
-tags: study
+tags: study,java
 ---
-
-# Sample Application - 테스트/코드평가
+# SampleApplication(2) - 테스트/코드평가
 
 ## Test를 통한 코드 평가
 
@@ -595,4 +594,3 @@ systemProp.sonar.projectKey=sampleApp01-이름을넣어주세요
 |규칙수|408|234|xml에 따라 다름|
 
 이 3가지 모두를 다 사용할 수 있는 것이 좋습니다. 자신의 문제를 객관적으로 확인해볼 수 있습니다.
-

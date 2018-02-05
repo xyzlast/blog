@@ -1,10 +1,9 @@
 ---
-title: 05-01.SampleApplication 개발(1) - 초난감 Project
+title: 05-01.SampleApplication(1) - 초난감 Project
 date: 2018-02-01 12:46:33
-tags: study
+tags: study,java
 ---
-
-# spring을 이용한 Simple application의 제작 (1) - 초난감 프로젝트
+# SampleApplication(1) - 초난감 프로젝트
 
 이 장의 제목은 Toby의 Spring Framework에서 붙인 이름을 그대로 표절해봤습니다. 매우 큰 문제를 가진 간단한 프로그램이 뛰어난 확장성과 처음의 너저분한 코드에서 점차 깔끔하게 구성 되어가는 코드로 점차 변경되어가는 것을 볼 수 있을겁니다.
 먼저, 간단한 application입니다. bookStore라고 하나의 Project를 만들고, books 라는 table에 대한 CRUD와 count를 하는 application을 간단히 작성해보도록 하겠습니다.
@@ -364,4 +363,3 @@ public class App {
 
 개발환경을 꾸미고, 간단한 코드를 작성해보았습니다.
 이제 다음은 만들어진 코드를 테스트하고, 평가하는 방법에 대해서 알아보도록 하겠습니다.
-
