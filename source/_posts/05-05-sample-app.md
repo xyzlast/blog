@@ -37,6 +37,17 @@ public DataSource dataSource() {
 }
 ```
 
+참고삼아, `JNDI`를 이용한 `DataSource`의 경우에는 다음과 같이 구성 가능합니다.
+
+```java
+@Bean
+public DataSource jndiDataSource() {
+    JndiDataSourceLookup lookup = new JndiDataSourceLookup();
+    lookup.setResourceRef(true);
+    return lookup.getDataSource(jndiName);
+}
+```
+
 ### SqlExecutor -> JdbcTemplate
 
 구현된 `SqlExecutor`에서 제공되는 Template, Callback을 이용한 객체를 `Spring`에서는 `JdbcTemplate`로 제공하고 있습니다. 객체 Bean은 다음과 같이 등록이 가능합니다.

@@ -36,17 +36,18 @@ mysql> show tables;
 +---------------------+
 3 rows in set (0.01 sec)
 
-mysql> describe users;
-+----------+-------------+------+-----+---------+----------------+
-| Field    | Type        | Null | Key | Default | Extra          |
-+----------+-------------+------+-----+---------+----------------+
-| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
-| name     | varchar(50) | NO   |     | NULL    |                |
-| password | varchar(12) | NO   |     | NULL    |                |
-| point    | int(11)     | NO   |     | NULL    |                |
-| level    | int(11)     | NO   |     | NULL    |                |
-+----------+-------------+------+-----+---------+----------------+
-5 rows in set (0.00 sec)
+mysql> describe books;
++-------------+--------------+------+-----+-------------------+-----------------------------+
+| Field       | Type         | Null | Key | Default           | Extra                       |
++-------------+--------------+------+-----+-------------------+-----------------------------+
+| id          | int(11)      | NO   | PRI | NULL              | auto_increment              |
+| name        | varchar(255) | NO   |     | NULL              |                             |
+| author      | varchar(50)  | NO   |     | NULL              |                             |
+| publishDate | timestamp    | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
+| comment     | varchar(255) | YES  |     | NULL              |                             |
+| status      | int(11)      | NO   |     | NULL              |                             |
+| rentUserId  | int(11)      | YES  | MUL | NULL              |                             |
++-------------+--------------+------+-----+-------------------+-----------------------------+
 
 mysql> describe users;
 +----------+-------------+------+-----+---------+----------------+
