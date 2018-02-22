@@ -3,7 +3,6 @@ title: 04.Spring Framework 소개
 date: 2018-02-01 12:45:14
 tags: study
 ---
-
 # Spring Framework 소개
 
 Spring Framework에 대한 소개와 왜 Spring을 써야지 되는지에 대한 당위성을 간단한 application을 작성하면서 알아보도록 하겠습니다.
@@ -38,4 +37,3 @@ Spring Framework는 위의 3가지의 특징을 가진 Framework입니다. 또�
 Spring Framework의 기본구조입니다. 위에서 말한 3가지의 특징은 Spring Core와 Spring AOP, Spring Context에 의하여 구성이 되어 있습니다. 나머지 ORM, WEB, DAO, WEB MVC의 경우에는 부가적 기능이라고 볼 수 있습니다.
 
 이런식으로만 적어두면, Spring이 과연 무엇을 하는 녀석인지를 알 수가 없습니다. 그래서 간단한 예제를 통해서 Spring을 통해서 점점 진화가 되어가는 코드의 변화를 보면서 Spring을 익혀보도록 하겠습니다.
-
