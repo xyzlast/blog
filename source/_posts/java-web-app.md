@@ -1,5 +1,5 @@
 ---
-title: 13.Java Web Application의 구조
+title: 13. Java Web Application의 구조
 date: 2018-03-28 08:17:31
 tags: java, web.xml
 ---
