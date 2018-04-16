@@ -4,6 +4,8 @@ date: 2018-04-10 08:17:00
 tags: spring, view, controller, pdf, json
 ---
 
+# 15. Spring View
+
 View는 사용자에게 최종적으로 보이는 영역입니다. 이 영역은 우리가 일반적으로 보는 Html이 될 수도 있고, Mobile App에게는 JSON format의 API 결과가 될 수도 있습니다.
 기본적으로 Spring Servlet/MVC를 기반으로 동작하게 됩니다. View 계층 또는 Presentation 계층이라고 합니다.
 
@@ -718,11 +720,38 @@ protected void buildPdfDocument(Map<String, Object> model, Document document, Pd
 }
 ```
 
-이제 한글을 정상적으로 표시할 수 있습니다.
+이제 한글을 정상적으로 표시할 수 있습니다. 이 때 폰트는 `iTextAsian`에서 제공되는 font만을 사용하게 됩니다.
+
+만약 외부 한글 font를 이용하기 위해서는 다른 방법을 사용해야지 됩니다. itext는 거의 대부분의 ttf 파일을 지원합니다. ttf를 class path에 넣어주는 것이 필요합니다. 이때, ttf파일을 class path에 넣어주는 것이 중요합니다. 이는 font embedded가 되는 것으로 생각하시면 되고, 이는 한참 문제되고 있는 font 저작권문제와 연관이 깊습니다. 이렇게 배포하게 되는 경우에는 font의 저작권을 신경써주시는 것이 좋습니다. 외부 ttf 파일을 이용해서 사용하는 경우, 다음과 같은 코드를 이용하면 됩니다.
+
+```java
+private BaseFont getIdentityFont(String path) throws DocumentException, IOException {
+    String fontPath = FontUtils.class.getClassLoader().getResource(path).toExternalForm();
+    if (fontPath == null) {
+        return null;
+    }
+    BaseFont baseFont = BaseFont.createFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+    return baseFont;
+}
+
+@Override
+protected void buildPdfDocument(Map<String, Object> model, Document document, PdfWriter writer,
+                                HttpServletRequest request, HttpServletResponse response) throws Exception {
+    setFileNameToResponse(request, response, "bookList.pdf");
+    BaseFont objBaseFont = getIdentityFont("nanumGothic.ttf");
+    if (objBaseFont == null) {
+        throw new RuntimeException("font 파일이 존재하지 않습니다.");
+    }
+    Font objFont = new Font(objBaseFont, 12);
+    Chapter chapter = new Chapter(new Paragraph("this is english"), 1);
+    chapter.add(new Paragraph("이건 메세지입니다.", objFont));
+    document.add(chapter);
+}
+```
 
 ### PDF (using iText 5 higher)
 
-최근에 나온 `iText`는 모두 `APGA`라는 매우 강력한 라이센스 정책을 가지고 있습니다. 이 정책의 경우에는 만든 제품의 코드를 공개하지 않으면 안됩니다. 외부에 알려지면 매우 곤란한 일이 발생할 수 있습니다. 그리고 `Spring`에서 기본적으로 지원하고 있지는 않습니다. 그렇지만, 우리는 기존 `AbstractPdfView`를 기반으로 해서 새로운 `AbstractView`를 만들어낼 수 있습니다. 다음과 같이 구성해보도록 하겠습니다.
+`iText` 5 부터는 `APGA`라는 매우 강력한 라이센스 정책을 가지고 있습니다. 이 정책의 경우에는 만든 제품의 코드를 공개하지 않으면 안됩니다. 이 라이센스정책의 경우, 솔루션에서 사용할 수 없습니다. 그런 이유인지는 모르겠지만, `Spring`에서 기본적으로 지원하고 있지는 않습니다. 그렇지만, 우리는 기존 `AbstractPdfView`를 기반으로 해서 새로운 `AbstractView`를 만들어낼 수 있습니다. 다음과 같이 구성해보도록 하겠습니다.
 
 ```java
 public abstract class AbstractIText5PdfView extends AbstractView {
